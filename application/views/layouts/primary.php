@@ -16,7 +16,7 @@
 
 	<meta name="viewport" content="width=device-width">
 
-	<?php if ($this->get_config['css_include_default']): ?>
+	<?php if ($this->get_config('css_include_default')): ?>
 
 	<link rel="stylesheet" href="<?php echo $this->get_config['css_path'] . '/style.' . $this->get_config['cache_version']; ?>.css">
 
@@ -28,7 +28,7 @@
 			echo $this->get_css();
 	?>
 
-	<?php if ($this->get_config('parse_js')) ?>
+	<?php if ($this->get_config('parse_js')): ?>
 
 		<script src="js/libs/modernizr-2.5.2.min.js"></script>
 
@@ -62,7 +62,7 @@
 
 </div> <!-- end #wrapper -->
 
-<?php if ($this->get_config('parse_js')) ?>
+<?php if ($this->get_config('parse_js')): ?>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
@@ -73,7 +73,7 @@
 
 <?php echo $this->get_js(); ?>
 
-	<?php if ($this->get_config('js_include_ga'): ?>
+	<?php if ($this->get_config('js_include_ga')): ?>
 
 	<script>
 		var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
