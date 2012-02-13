@@ -73,7 +73,7 @@
 
 	<?php if ($this->get_config('js_include_default', TRUE)): ?>
 
-		<script src="<?php echo $this->get_config('js_path') . 'script.' . $this->get_config('cache_version'); ?>"></script>
+		<script src="<?php echo $this->get_config('js_path') . 'script.' . $this->get_config('cache_version'); ?>.js"></script>
 
 		<?php echo $this->get_js(); ?>
 
