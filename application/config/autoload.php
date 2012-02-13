@@ -37,7 +37,7 @@
 |
 */
 
-$autoload['packages'] = array();
+$autoload['packages'] = array(APPPATH.'third_party/kindling');
 
 
 /*
@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array();
+$autoload['libraries'] = array('kindling');
 
 
 /*
@@ -80,7 +80,7 @@ $autoload['helper'] = array('debug', 'url');
 |
 */
 
-$autoload['config'] = array('MY_constants');
+$autoload['config'] = array('MY_constants', 'kindling');
 
 
 /*
