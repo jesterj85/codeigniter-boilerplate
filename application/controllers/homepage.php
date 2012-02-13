@@ -9,7 +9,10 @@ class Homepage extends CI_Controller {
 		$kin =& $this->kindling;
 
 		$kin->content('title_appendage', 'CodeIgniter Boilerplate with Kindling!');
+
 		$kin->css('h1 { font-family: Arial; }');
+
+		$kin->meta('author', 'Kevin Wood-Friend');
 	}
 
 	public function index()
