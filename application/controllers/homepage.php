@@ -2,7 +2,7 @@
 
 class Homepage extends CI_Controller {
 
-	function __construct()
+	public function __construct()
 	{
 		parent::__construct();
 	}
@@ -11,7 +11,7 @@ class Homepage extends CI_Controller {
 	{
 		$this->load->view('homepage');
 	}
-	
+
 }
 
 # EOF
