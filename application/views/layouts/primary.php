@@ -16,9 +16,9 @@
 
 	<meta name="viewport" content="width=device-width">
 
-	<?php if ($this->get_config('css_include_default')): ?>
+	<?php if ($this->get_config('css_include_default', TRUE)): ?>
 
-	<link rel="stylesheet" href="<?php echo $this->get_config['css_path'] . '/style.' . $this->get_config['cache_version']; ?>.css">
+		<link rel="stylesheet" href="<?php echo $this->get_config('css_path') . 'style.' . $this->get_config('cache_version'); ?>.css">
 
 	<?php endif; ?>
 
@@ -28,9 +28,9 @@
 			echo $this->get_css();
 	?>
 
-	<?php if ($this->get_config('parse_js')): ?>
+	<?php if ($this->get_config('parse_js') && $this->get_config('js_include_modernizr', TRUE)): ?>
 
-		<script src="js/libs/modernizr-2.5.2.min.js"></script>
+		<script src="<?php echo $this->get_config('js_path'); ?>libs/modernizr-2.5.2.min.js"></script>
 
 	<?php endif; ?>
 
@@ -42,7 +42,7 @@
 
 	<header id="primary-header">
 
-	</header> <!-- end #main-header -->
+	</header> <!-- end #primary-header -->
 
 	<div id="content">
 
@@ -58,29 +58,35 @@
 
 	<footer id="primary-footer">
 
-	</footer> <!-- end #main-footer -->
+	</footer> <!-- end #primary-footer -->
 
 </div> <!-- end #wrapper -->
 
 <?php if ($this->get_config('parse_js')): ?>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+	<?php if ($this->get_config('js_include_jquery', TRUE)): ?>
 
-<script src="js/plugins.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
-<script src="js/script.js"></script>
+	<?php endif; ?>
 
-<?php echo $this->get_js(); ?>
+	<?php if ($this->get_config('js_include_default', TRUE)): ?>
 
-	<?php if ($this->get_config('js_include_ga')): ?>
+		<script src="<?php echo $this->get_config('js_path') . 'script.' . $this->get_config('cache_version'); ?>"></script>
 
-	<script>
-		var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-		s.parentNode.insertBefore(g,s)}(document,'script'));
-	</script>
+		<?php echo $this->get_js(); ?>
+
+		<?php if ($this->get_config('js_include_ga')): ?>
+
+			<script>
+				var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+				(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+				g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+				s.parentNode.insertBefore(g,s)}(document,'script'));
+			</script>
+
+		<?php endif; ?>
 
 	<?php endif; ?>
 
