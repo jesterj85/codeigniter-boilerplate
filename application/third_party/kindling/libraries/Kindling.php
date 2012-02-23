@@ -5,7 +5,7 @@
  *
  * A simple layout engine for CodeIgniter.
  *
- * @version 0.1.0
+ * @version 0.1.1
  *
  * @author Kevin Wood-Friend
  *
@@ -466,7 +466,7 @@ class Kindling {
 			foreach ($data as $key => $location)
 			{
 				# Append cache version
-				if ($this->get_config('include_cache_version') && $type != 'external')
+				if ($this->get_config('include_cache_version') && $type != 'include' && $type != 'external')
 					$data[$key] .= '.' . $this->config['cache_version'];
 
 				# Convert external URLs to protocol-relative URLs
@@ -606,7 +606,7 @@ class Kindling {
 			foreach ($data as $key => $location)
 			{
 				# Append cache version
-				if ($this->get_config('include_cache_version') && $type != 'external')
+				if ($this->get_config('include_cache_version') && $type != 'include' && $type != 'external')
 					$data[$key] .= '.' . $this->config['cache_version'];
 
 				# Convert external URLs to protocol-relative URLs
@@ -619,7 +619,7 @@ class Kindling {
 		}
 
 		# Add to JS type array
-		$this->js[$type] += $data;
+		$this->js[$type] = array_merge($this->js[$type], $data);
 	}
 
 
