@@ -6,24 +6,20 @@ class Homepage extends CI_Controller {
 	{
 		parent::__construct();
 
-		$kin =& $this->kindling;
+		$this->kindling->content('title_appendage', 'CodeIgniter Boilerplate with Kindling!');
 
-		$kin->content('title_appendage', 'CodeIgniter Boilerplate with Kindling!');
+		$this->kindling->css('h1 { font-family: Arial; }');
 
-		$kin->css('h1 { font-family: Arial; }');
-
-		$kin->meta('author', 'Kevin Wood-Friend');
+		$this->kindling->meta('author', 'Kevin Wood-Friend');
 	}
 
 	public function index()
 	{
-		$kin =& $this->kindling;
+		$this->kindling->content('title', 'Welcome to the Homepage');
 
-		$kin->content('title', 'Welcome to the Homepage');
+		$this->kindling->content('primary', $this->load->view('homepage', NULL, TRUE));
 
-		$kin->content('primary', $this->load->view('homepage', NULL, TRUE));
-
-		$kin->render();
+		$this->kindling->render();
 	}
 
 }
