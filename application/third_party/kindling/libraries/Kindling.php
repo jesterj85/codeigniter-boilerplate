@@ -5,7 +5,7 @@
  *
  * A simple layout engine for CodeIgniter.
  *
- * @version  0.1.4
+ * @version  0.1.5
  *
  * @author  Kevin Wood-Friend
  *
@@ -73,8 +73,12 @@ class Kindling {
 
 		$user_config = array();
 
-		if ($this->ci->config->load('kindling', FALSE, TRUE))
-			$user_config = $this->ci->config->item('kindling');
+		$this->ci->config->load('kindling', FALSE, TRUE);
+
+		$user_config = $this->ci->config->item('kindling');
+
+		if ( ! $user_config)
+			$user_config = array();
 
 		# Merge $config and configuration file
 		$this->config = array_merge($this->config, $config, $user_config);
