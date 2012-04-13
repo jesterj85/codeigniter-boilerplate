@@ -10,33 +10,33 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title><?php echo $this->get_content('title', NULL, TRUE); if ($this->get_content('title_appendage')) echo ' | ' . $this->get_content('title_appendage', NULL, TRUE); ?></title>
+	<title><?php echo $kindling->get_content('title', NULL, TRUE); if ($kindling->get_content('title_appendage')) echo ' | ' . $kindling->get_content('title_appendage', NULL, TRUE); ?></title>
 
-	<?php echo $this->get_meta(); ?>
+	<?php echo $kindling->get_meta(); ?>
 
 	<meta name="viewport" content="width=device-width">
 
-	<?php if ($this->get_config('css_include_default', TRUE)): ?>
+	<?php if ($kindling->get_config('css_include_default', TRUE)): ?>
 
-		<link rel="stylesheet" href="<?php echo $this->get_config('css_path') . 'style.' . $this->get_config('cache_version'); ?>.css">
+		<link rel="stylesheet" href="<?php echo $kindling->get_config('css_path') . 'style.' . $kindling->get_config('cache_version'); ?>.css">
 
 	<?php endif; ?>
 
 	<?php
 
-		if ($this->get_config('parse_css'))
-			echo $this->get_css();
+		if ($kindling->get_config('parse_css'))
+			echo $kindling->get_css();
 	?>
 
-	<?php if ($this->get_config('parse_js') && $this->get_config('js_include_modernizr', TRUE)): ?>
+	<?php if ($kindling->get_config('parse_js') && $kindling->get_config('js_include_modernizr', TRUE)): ?>
 
-		<script src="<?php echo $this->get_config('js_path'); ?>libs/modernizr-2.5.2.min.js"></script>
+		<script src="<?php echo $kindling->get_config('js_path'); ?>libs/modernizr-2.5.2.min.js"></script>
 
 	<?php endif; ?>
 
 </head>
 
-<body id="<?php echo $this->get_content('body_id'); ?>" class="<?php echo trim(trim($this->get_content('section') . ' ' .$this->get_content('page')) . ' ' . $this->get_content('body_class')); ?>">
+<body id="<?php echo $kindling->get_content('body_id'); ?>" class="<?php echo trim(trim($kindling->get_content('section') . ' ' .$kindling->get_content('page')) . ' ' . $kindling->get_content('body_class')); ?>">
 
 <div id="wrapper" class="clearfix">
 
@@ -48,9 +48,9 @@
 
 		<?php
 
-			echo $this->get_messages();
+			echo $kindling->get_messages();
 
-			echo $this->get_content('primary');
+			echo $kindling->get_content('primary');
 
 		?>
 
@@ -62,22 +62,22 @@
 
 </div> <!-- end #wrapper -->
 
-<?php if ($this->get_config('parse_js')): ?>
+<?php if ($kindling->get_config('parse_js')): ?>
 
-	<?php if ($this->get_config('js_include_jquery', TRUE)): ?>
+	<?php if ($kindling->get_config('js_include_jquery', TRUE)): ?>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
 	<?php endif; ?>
 
-	<?php if ($this->get_config('js_include_default', TRUE)): ?>
+	<?php if ($kindling->get_config('js_include_default', TRUE)): ?>
 
-		<script src="<?php echo $this->get_config('js_path') . 'script.' . $this->get_config('cache_version'); ?>.js"></script>
+		<script src="<?php echo $kindling->get_config('js_path') . 'script.' . $kindling->get_config('cache_version'); ?>.js"></script>
 
-		<?php echo $this->get_js(); ?>
+		<?php echo $kindling->get_js(); ?>
 
-		<?php if ($this->get_config('js_include_ga')): ?>
+		<?php if ($kindling->get_config('js_include_ga')): ?>
 
 			<script>
 				var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
