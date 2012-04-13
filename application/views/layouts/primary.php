@@ -16,23 +16,9 @@
 
 	<meta name="viewport" content="width=device-width">
 
-	<?php if ($kindling->get_config('css_include_default', TRUE)): ?>
+	<?php echo $kindling->get_css(); ?>
 
-		<link rel="stylesheet" href="<?php echo $kindling->get_config('css_path') . 'style.' . $kindling->get_config('cache_version'); ?>.css">
-
-	<?php endif; ?>
-
-	<?php
-
-		if ($kindling->get_config('parse_css'))
-			echo $kindling->get_css();
-	?>
-
-	<?php if ($kindling->get_config('parse_js') && $kindling->get_config('js_include_modernizr', TRUE)): ?>
-
-		<script src="<?php echo $kindling->get_config('js_path'); ?>libs/modernizr-2.5.2.min.js"></script>
-
-	<?php endif; ?>
+	<script src="<?php echo $kindling->get_config('js_path'); ?>libs/modernizr-2.5.2.min.js"></script>
 
 </head>
 
@@ -62,35 +48,17 @@
 
 </div> <!-- end #wrapper -->
 
-<?php if ($kindling->get_config('parse_js')): ?>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
-	<?php if ($kindling->get_config('js_include_jquery', TRUE)): ?>
+<?php echo $kindling->get_js(); ?>
 
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-
-	<?php endif; ?>
-
-	<?php if ($kindling->get_config('js_include_default', TRUE)): ?>
-
-		<script src="<?php echo $kindling->get_config('js_path') . 'script.' . $kindling->get_config('cache_version'); ?>.js"></script>
-
-		<?php echo $kindling->get_js(); ?>
-
-		<?php if ($kindling->get_config('js_include_ga')): ?>
-
-			<script>
-				var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-				(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-				g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-				s.parentNode.insertBefore(g,s)}(document,'script'));
-			</script>
-
-		<?php endif; ?>
-
-	<?php endif; ?>
-
-<?php endif; ?>
+<script>
+	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
 
 </body>
 </html>
